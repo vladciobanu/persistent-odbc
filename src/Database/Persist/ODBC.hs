@@ -127,7 +127,7 @@ openSimpleConn logFunc mdbtype conn = do
 
     smap <- newIORef Map.empty
     liftIO $ putStrLn "is this on?"
-    _ <- O.setAutoCommit conn False
+    _ <- O.setAutoCommit conn True
     return SqlBackend
         { connLogFunc       = logFunc
         , connPrepare       = prepare' conn
