@@ -126,6 +126,7 @@ openSimpleConn logFunc mdbtype conn = do
               Just dbtype -> getMigrationStrategy dbtype
 
     smap <- newIORef Map.empty
+    liftIO $ putStrLn "is this on?"
     _ <- O.setAutoCommit conn False
     return SqlBackend
         { connLogFunc       = logFunc
